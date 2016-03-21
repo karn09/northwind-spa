@@ -1,38 +1,5 @@
 var list = angular.module('list', []);
 
-
-// list.service('listService', function() {
-//     return {
-//       list: function() {
-//         $http.get('/api')
-//           .then(function(list) {
-//             $scope.list = list.data
-//             console.log(list.data)
-//           });
-//       },
-//       addItem: function(item) {
-//
-//       },
-//       removeItem: function(id) {
-//
-//       }
-//     };
-// });
-//
-// list.controller('listCtrl', ['$scope', '$http', 'listService', function($scope, $http, listService) {
-//   $scope.getList = function() {
-//
-//   };
-//
-//   $scope.addItem = function(item) {
-//
-//   };
-//
-//   $scope.removeItem = function(id) {
-//
-//   };
-// }]);
-
 list.controller('listCtrl', function($scope, $http) {
 
   $scope.list = [];
