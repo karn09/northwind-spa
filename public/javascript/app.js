@@ -1,5 +1,7 @@
 var list = angular.module('list', []);
 
+//capitalize your controllers - by convention should be ListCtrl
+//and frankly should probably be ListsCtrl because this is a collection of List models.. again model name should probably have been Item, then ItemsCtrl sould make more sense
 list.controller('listCtrl', function($scope, $http) {
 
   $scope.list = [];
@@ -7,7 +9,7 @@ list.controller('listCtrl', function($scope, $http) {
   var loadList = function() {
     $http.get('/api')
       .then(function(list) {
-        $scope.list = list.data;
+        $scope.list = list.data;//why not do sorting on the server? get it sorted from the beginning?
         $scope.list.sort(function(a, b) {
           if (a.priority > b.priority) {
             return 1;
@@ -35,6 +37,7 @@ list.controller('listCtrl', function($scope, $http) {
     }
     // 22, 23, 24
 
+    //these can be run simultaneously-- see solution which uses $q.all
     $http.put('/api/' + item1._id, { "priority": p2 })
       .then(function() {
         $http.put('/api/' + item2._id, { "priority": p1 });
@@ -78,6 +81,7 @@ list.controller('listCtrl', function($scope, $http) {
   loadList();
 });
 
+//your not using this- and if you were ItemForm
 list.controller('itemForm', function($scope, $http) {
   $scope.form = {};
 

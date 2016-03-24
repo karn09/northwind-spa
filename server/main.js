@@ -10,6 +10,7 @@ module.exports = app;
 var root = path.join(__dirname, '../');
 
 app.use(bodyParser.json());
+//are you using this? if not-- then why put it in?
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(morgan('dev'));
 
